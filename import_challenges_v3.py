@@ -8,7 +8,7 @@ import sys
 
 # Configuration
 CTFd_URL = "http://localhost:80"
-ADMIN_TOKEN = "ctfd_7273e0c998a1b96085c1a819457fbc5943ad1ef40eda099b72a336b371d71e4d"
+ADMIN_TOKEN = "ctfd_961435cc53d9b61aa7220e334eab86d9267fa43a2fe109d5b542b579764a2580"
 JSON_FILE = "csvjson.json"
 
 HEADERS = {
