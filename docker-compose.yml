@@ -3,9 +3,10 @@ services:
     build: .
     restart: always
     ports:
-      - "8000:8000"
+      # - "8000:8000"
+      - "0.0.0.0:8000:8000"
     environment:
-      - UPLOAD_FOLDER=/var/uploads
+      - UPLOAD_FOLDER=/var/uploads      ping 172.23.80.1      ping 172.23.80.1
       - DATABASE_URL=mysql+pymysql://ctfd:ctfd@db/ctfd
       - REDIS_URL=redis://cache:6379
       - WORKERS=1

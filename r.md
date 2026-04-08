@@ -49,3 +49,5 @@ C:\Windows\System32>netsh advfirewall firewall delete rule name="Allow CTFd 8000
 
 Deleted 1 rule(s).
 Ok.
+
+

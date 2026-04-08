@@ -1,8 +1,8 @@
 import csv
 import requests
 
-CTFD_URL = "http://localhost:8000"  # Change to your CTFd URL (ensure this matches your running server)
-ADMIN_TOKEN = "ctfd_d7669c2a3054eff9d7c003f813faffebec319993e12a57ea6fc150b181011f81"  # Replace with your admin token
+CTFD_URL = "http://172.23.80.1:8000"  # Change to your CTFd URL (ensure this matches your running server)
+ADMIN_TOKEN = "ctfd_3c985ed77c1ae993ce3b3bcb2c6f48d236faa52af73411eddbd8828eddfcb3f3"  # Replace with your admin token
 CSV_FILE = "importdata/teams.csv"  # Use forward slashes for cross-platform compatibility
 
 HEADERS = {

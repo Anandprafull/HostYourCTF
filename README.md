@@ -48,4 +48,48 @@ Or you can use Docker Compose with the following command from the source reposit
 
 - CTFd
 
+az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 80 --dns-name-label ctfdtest$RANDOM --location centralindia
 
+az group create --name ctfd-test-rg --location centralindia
+
+<!-- az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 80 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu 1 --memory 1.5 -->
+
+az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 8000 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu 1 --memory 1.5
+
+az container show --resource-group ctfd-test-rg --name ctfd-test --query ipAddress.fqdn -o tsv
+
+Here’s how you can manage your Azure Container Instance (ACI) deployment:
+
+**1. Change CPU or Memory:**
+You cannot resize an existing container group. You must delete and recreate it with new values:
+```sh
+az container delete --resource-group ctfd-test-rg --name ctfd-test --yes
+az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 8000 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu <new_cpu> --memory <new_memory>
+```
+Replace `<new_cpu>` and `<new_memory>` with your desired values.
+
+**2. Pause/Stop the Deployment:**
+ACI does not support pausing or stopping containers. You must delete the container to stop billing:
+```sh
+az container delete --resource-group ctfd-test-rg --name ctfd-test --yes
+```
+To “pause,” delete it and recreate later.
+
+**3. Restart the Container:**
+You can restart a running container group:
+```sh
+az container restart --resource-group ctfd-test-rg --name ctfd-test
+```
+
+**4. View Logs:**
+```sh
+az container logs --resource-group ctfd-test-rg --name ctfd-test
+```
+
+**5. Check Status:**
+```sh
+az container show --resource-group ctfd-test-rg --name ctfd-test --query instanceView.state
+```
+
+sed -i 's|CTFd_URL = ".*"|CTFd_URL = "http://<your-public-azure-url>:8000/"|' import_challenges.py
+sed -i 's|ADMIN_TOKEN = ".*"|ADMIN_TOKEN = "ctfd_NEW_TOKEN"|' import_challenges.py

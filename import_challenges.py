@@ -7,8 +7,8 @@ import requests
 import sys
 
 # Configuration
-CTFd_URL = "http://10.20.22.9:8000/"
-ADMIN_TOKEN = "ctfd_d7669c2a3054eff9d7c003f813faffebec319993e12a57ea6fc150b181011f81"
+CTFd_URL = "http://172.23.80.1:8000/"
+ADMIN_TOKEN = "ctfd_3c985ed77c1ae993ce3b3bcb2c6f48d236faa52af73411eddbd8828eddfcb3f3"
 JSON_FILE = "csvjson.json"
 
 HEADERS = {
