@@ -98,7 +98,7 @@
     "title": "Colours of Hogwarts",
     "description": "A wizard hid a flag somewhere only a true hogwarts student would find \u2026",
     "question": "analyze the code .",
-    "link": "https://drive.google.com/open?id=1lU-zsybVXoPlyJCErcZqdNkXgKnEHv-E",
+    "link": "https://the-colours-of-hogwarts.vercel.app/",
     "tags": ["Website", "Cipher", "Crypto"],
     "points": 30,
     "type": "Cryptography",
@@ -136,7 +136,7 @@
     "title": "The Mysterious Staircase",
     "description": "In Hogwarts, every staircase shifts… but some hide something far more unusual. Can you uncover its secret?",
     "question": "Discover the secret hidden in the mysterious staircase.",
-    "link": "https://drive.google.com/open?id=1LYI7wLCcF69Y9rS9OL3vp7Y3o1hdeg9-",
+    "link": "https://mysteriousstaircase.vercel.app/",
     "tags": ["Steganography", "Image Analysis"],
     "points": 30,
     "type": "Forensics",
@@ -156,7 +156,7 @@
     "title": "Fragment of a Divided Soul",
     "description": "A fragment lies hidden beneath layers of illusion. Only those who look beyond what is visible can uncover the truth — but even then, the final form requires transformation.",
     "question": "",
-    "link": "https://drive.google.com/open?id=1AUqPCcgHp88QTOR2t9vl3dIWldyX1ocO",
+    "link": "https://fragements-of-the-divided-soul.vercel.app",
     "tags": ["Website", "Cipher", "Javascript"],
     "points": 30,
     "type": "Web",
@@ -198,7 +198,7 @@
     "question": "Decrypt Hermione’s secret message to find the hidden flag.",
     "link": "https://drive.google.com/open?id=1gaLM-hyS1Mwfx4N-tjqOpXug_4WlNanO",
     "tags": ["Cipher", "Binary"],
-    "points": 40,
+    "points": 30,
     "type": "Cryptography",
     "category": "Cipher",
     "answer": "ritCTF{mysterious_stairs_are_in_danger}",
@@ -207,7 +207,7 @@
       "Tools like Boxentriq Cipher Identifier can help identify the cipher.",
       "The cipher is Vigenère; perhaps someone trusted by Hermione holds the key."
     ],
-    "costs": [4, 8, 12],
+    "costs": [3, 6, 9],
     "format": "ritCTF{}",
     "disable": 0,
     "question_id": "hermione_secret_message"
@@ -215,7 +215,7 @@
   {
     "title": "Restricted Section Vault",
     "description": "A hidden section of the Hogwarts library has been sealed off from students. Only those with the right knowledge can uncover the secrets within. Follow the clues, unlock the hidden vault, and reveal the forbidden magic.",
-    "question": "",
+    "question": "https://restricted-section.vercel.app ",
     "link": "https://drive.google.com/open?id=18UqaWHyi53G5gm-KkMNn99uOirPYlXc8",
     "tags": ["Website", "Cipher", "Javascript", "Image Analysis", "Metadata"],
     "points": 30,
@@ -238,7 +238,7 @@
     "question": "Inspect the webpage source, decode the hidden message, and uncover the final flag.",
     "link": "https://marauder-ten.vercel.app/",
     "tags": ["Website", "Cipher", "Javascript"],
-    "points": 30,
+    "points": 20,
     "type": "Web + Base64 + Hex Encoding",
     "category": "Cipher",
     "answer": "ritCTF{forbidden_magic_revealed}",
@@ -316,9 +316,9 @@
     "title": "Owl Network Intercept",
     "description": "The Ministry of Magic has intercepted suspicious owl communications across Hogwarts. While most transmissions appear normal, hidden fragments of a secret message are concealed within corrupted logs. Only those who can analyze patterns, reconstruct fragmented data, and think beyond conventional inputs can uncover the final secret.",
     "question": "",
-    "link": "https://drive.google.com/open?id=1QwDm-lVQlVJTDxISBUl00bMOMtEAaCPT",
+    "link": "https://owl-ntw-xss-challenge.vercel.app/",
     "tags": ["Website", "Cipher", "XSS", "Javascript"],
-    "points": 50,
+    "points": 30,
     "type": "Web + Cipher + XSS",
     "category": "Web",
     "answer": "ritCTF{xss_magic_unlocked}",
@@ -327,7 +327,7 @@
       "The recovered keyword may not directly unlock the answer. Think about how the input field processes your data.",
       "Some spells are not spoken… they are executed differently."
     ],
-    "costs": [5, 10, 15],
+    "costs": [3, 6, 9],
     "format": "ritCTF{}",
     "disable": 1,
     "question_id": "owl_xss_01"
@@ -378,7 +378,7 @@
     "question": "",
     "link": "https://drive.google.com/open?id=1uBwcUvyatCSJAwaQySVQUT9wOWb80scy",
     "tags": ["Cipher", "Python", "Binary"],
-    "points": 40,
+    "points": 30,
     "type": "Cryptography",
     "category": "Cipher",
     "answer": "ritCTF{room_reveals_truth}",
@@ -471,5 +471,99 @@
     "format": "ritCTF{...}",
     "disable": 0,
     "question_id": "threebrothers"
-  }
+  },
+  {
+    "title": "The Enchanted Vault",
+    "description": "A forgotten portrait guards a vault of secrets hidden beneath layers of magic and encryption. From concealed keys to locked ciphers, only those who can think beyond the obvious will uncover what lies within.",
+    "question": "Investigate the provided files to uncover hidden data, recover encrypted keys, and ultimately unlock the final vault to retrieve the flag.",
+    "link": "https://drive.google.com/open?id=1a4q8WBo9VThHV1KNxC4WOMK093qwUy3A",
+    "tags": ["Cipher", "Steganography", "Python", "Image Analysis", "Crypto + Steganography + Brute Force + RSA"],
+    "points": 50,
+    "type": "Cryptography (Crypto)",
+    "category": "Cipher",
+    "answer": "ritCTF{g00d_that_herm0ine_thought_m3_th3_al0h0ra_spell}",
+    "clues": [
+      "The portrait is not just an image. Try looking beyond what is visible — sometimes files hide within files.",
+      "The hidden content is protected. The passphrase is tied to where magic begins, followed by a simple first three numbers pattern. Once extracted, remember — even keys can be locked again.",
+      "Passphrase: Hogwarts123 The extracted key is protected by a 4-digit PIN — brute force may be required. The decrypted vault output is not the answer itself, but part of the final key."
+    ],
+    "costs": [2, 5, 8],
+    "format": "ritCTF{}",
+    "disable": 0,
+    "question_id": "EnchantedVault"
+  },
+  {
+    "title": "Hogwarts Staff Portal",
+    "description": "The Hogwarts Staff Portal has recently been restored from an old archive. However, some parts of the system still seem to rely on legacy mechanisms. When you access the portal, you are greeted by a message from a new professor. The page contains a curious remark about someone looking like a half-giant, and the portal insists that only verified staff records may proceed. Something about the portal feels outdated, and the system might still trust information it shouldn't. Explore the portal carefully and see if you can gain access to the restricted section.",
+    "question": "change cookie values",
+    "link": "https://the-new-professor-rho.vercel.app/",
+    "tags": ["Website", "Python", "cookie manipulation"],
+    "points": 40,
+    "type": "Web",
+    "category": "Web",
+    "answer": "ritCTF{never_trust_client_side_cookies}",
+    "clues": [
+      "The portal may trust something stored in your browser. Perhaps the system believes whatever the client tells it.",
+      "The message mentions someone who is not fully human. Maybe the name behind that hint is important.",
+      "Some registries prefer formal records rather than nicknames. Older systems sometimes attach identifiers to their entries something like name_number."
+    ],
+    "costs": [4, 8, 16],
+    "format": "ritCTF{}",
+    "disable": 0,
+    "question_id": "hogwarts_staff_portal"
+  },
+  {
+    "title": "The Owl Post System",
+    "description": "Hogwarts recently created an online Owl Post system so students can send magical messages across the castle. However, Fred and George suspect the system was built in a hurry and might contain security flaws. Rumor says that a secret message about a hidden Horcrux was accidentally stored in the system. Your mission is to investigate the Owl Post portal and uncover the hidden message.",
+    "question": "based on IDOR concept",
+    "link": "https://drive.google.com/open?id=101Z1su6-QIGXUHAkXDcrDlt3sU5nk45X",
+    "tags": ["Website", "Cipher", "Python", "Javascript", "IDOR"],
+    "points": 40,
+    "type": "Web",
+    "category": "Forensics",
+    "answer": "ritCTF{0wl_p0st_ID0R_m1sch13f}",
+    "clues": [
+      "The Owl Post system delivers many messages, but are you sure you are only reading your own? Sometimes changing the owl's route may lead you to letters not meant for you."
+    ],
+    "costs": [6],
+    "format": "ritCTF{}",
+    "disable": 0,
+    "question_id": "owl_post_system"
+  },  {
+    "title": "Detective Hagrid",
+    "description": "In the dimly lit station of Hollowbrook, a lazy Network Admin of your department is found dead, his laptop humming with unfinished code. A cryptic message in the blood reads 'Follow my TRAIL'.",
+    "question": "",
+    "link": "https://ctf-inspector.vercel.app/",
+    "tags": ["Website"],
+    "points": 50,
+    "type": "Forensics",
+    "category": "Forensics",
+    "answer": "ritCTF{1s_th4t_y0u_1nsp3ct0ri0_pumpk1n}",
+    "clues": ["All the text seems to point to something... Some of them could be hidden too!", "Why is only one link in the Nav bar not working 🤔", "leme see where the other links go to."],
+    "costs": [2, 5, 8],
+    "format": "",
+    "disable": 0,
+    "question_id": "inspector"
+  },
+  {
+  "title": "Dumbledore Typer",
+  "description": "",
+  "question": "All of the developers have a really good typing speed, Lets see if you can live up to our expectations.After attaining the required speed, lookout for more tasks to capture the flag.(Note:- flag found should be written in ritctf{})",
+  "link": "https://ctf-q2.vercel.app/",
+  "tags": ["Website"],
+  "points": 50,
+  "type": "Steganography",
+  "category": "Steganography",
+  "answer": "ritctf{egg_rolls}",
+  "clues": [
+    "Find the hidden file",
+    "Brainfuck coding language is being used here.",
+    "View network section in dev tools."
+  ],
+  "costs": [2, 5, 10],
+  "format": "ritCTF",
+  "disable": 0,
+  "question_id": "bf7f8ff8-ac4c-4ce6-8abf-9a2f891dd0a1"
+}
+
 ]

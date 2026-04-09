@@ -46,50 +46,62 @@ Or you can use Docker Compose with the following command from the source reposit
 
 ## Credits
 
-- CTFd
+## Deployment to Azure
 
-az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 80 --dns-name-label ctfdtest$RANDOM --location centralindia
-
+### 1. Create a Resource Group
+```sh
 az group create --name ctfd-test-rg --location centralindia
+```
 
-<!-- az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 80 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu 1 --memory 1.5 -->
+### 2. Deploy Azure Container Instance (ACI)
+Replace `<image_tag>` with `latest` or your specific version (e.g., `v2`).
+```sh
+az container create \
+  --resource-group ctfd-test-rg \
+  --name ctfd-test \
+  --image prafullanand/ctfd:<image_tag> \
+  --ports 8000 \
+  --dns-name-label ctfdtest$RANDOM \
+  --location centralindia \
+  --os-type Linux \
+  --cpu 1 \
+  --memory 1.5
+```
 
-az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 8000 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu 1 --memory 1.5
-
+### 3. Get the Public URL
+```sh
 az container show --resource-group ctfd-test-rg --name ctfd-test --query ipAddress.fqdn -o tsv
+```
 
-Here’s how you can manage your Azure Container Instance (ACI) deployment:
+### 4. Manage Your Deployment
 
-**1. Change CPU or Memory:**
-You cannot resize an existing container group. You must delete and recreate it with new values:
+**Change CPU or Memory:**
+You must delete and recreate the container group to resize:
 ```sh
 az container delete --resource-group ctfd-test-rg --name ctfd-test --yes
-az container create --resource-group ctfd-test-rg --name ctfd-test --image prafullanand/ctfd:latest --ports 8000 --dns-name-label ctfdtest$RANDOM --location centralindia --os-type Linux --cpu <new_cpu> --memory <new_memory>
+# Re-run Create command with new --cpu or --memory values
 ```
-Replace `<new_cpu>` and `<new_memory>` with your desired values.
 
-**2. Pause/Stop the Deployment:**
-ACI does not support pausing or stopping containers. You must delete the container to stop billing:
+**Pause/Stop (Save Credits):**
+ACI billing continues as long as the container exists. Delete it to stop billing:
 ```sh
 az container delete --resource-group ctfd-test-rg --name ctfd-test --yes
 ```
-To “pause,” delete it and recreate later.
 
-**3. Restart the Container:**
-You can restart a running container group:
+**Restart or View Logs:**
 ```sh
 az container restart --resource-group ctfd-test-rg --name ctfd-test
-```
-
-**4. View Logs:**
-```sh
 az container logs --resource-group ctfd-test-rg --name ctfd-test
 ```
 
-**5. Check Status:**
+**Check Status:**
 ```sh
 az container show --resource-group ctfd-test-rg --name ctfd-test --query instanceView.state
 ```
 
+### 5. Update Challenge Scripts
+After deployment, update your [import_challenges.py](import_challenges.py) with the new URL:
+```sh
 sed -i 's|CTFd_URL = ".*"|CTFd_URL = "http://<your-public-azure-url>:8000/"|' import_challenges.py
 sed -i 's|ADMIN_TOKEN = ".*"|ADMIN_TOKEN = "ctfd_NEW_TOKEN"|' import_challenges.py
+```
